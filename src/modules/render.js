@@ -1,7 +1,7 @@
-const todoListEl = document.getElementById('todo-list');
-
 import deleteSvg from '../assets/delete.svg';
 import menuSvg from '../assets/menu.svg';
+
+const todoListEl = document.getElementById('todo-list');
 
 const createTaskItemEl = (task) => {
   const taskEl = document.createElement('li');
@@ -14,8 +14,10 @@ const createTaskItemEl = (task) => {
 
   if (task.completed) {
     checkBoxEl.checked = true;
+    taskDescriptionEl.classList.add('completed-task-description');
   } else {
     checkBoxEl.checked = false;
+    taskDescriptionEl.classList.remove('completed-task-description');
   }
 
   taskDescriptionEl.value = task.description;
@@ -42,6 +44,7 @@ const createTaskItemEl = (task) => {
   return taskEl;
 };
 const renderToDoList = (tasks) => {
+  todoListEl.innerHTML = '';
   tasks.getTasks().forEach((task) => {
     todoListEl.appendChild(createTaskItemEl(task));
   });

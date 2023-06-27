@@ -1,4 +1,5 @@
-import renderToDoList from './render';
+import renderToDoList from './render.js';
+
 const initAddItemToList = (tasks) => {
   const addBtnEl = document.getElementById('add-task-input');
   addBtnEl.addEventListener('keypress', (e) => {
