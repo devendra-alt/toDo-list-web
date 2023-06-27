@@ -8,6 +8,12 @@
   /* border: 1px solid red; */
 }
 
+/* font size */
+
+html {
+  font-size: 10px;
+}
+
 /* Remove default margin */
 body,
 h1,
@@ -23,8 +29,8 @@ dd {
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role='list'],
-ol[role='list'] {
+ul,
+ol {
   list-style: none;
 }
 
@@ -38,6 +44,9 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* A elements that don't have a class get default styles */

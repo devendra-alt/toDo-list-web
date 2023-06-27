@@ -1,0 +1,39 @@
+#todoApp {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: 70%;
+  padding: 2.4rem;
+}
+
+input {
+  outline: none;
+  border: none;
+  font-size: 1.4rem;
+}
+
+#add-task-input {
+  font-style: italic;
+}
+
+#todo-list {
+  padding: 0;
+}
+
+.task-el {
+  display: flex;
+  flex-direction: row;
+  padding: 1.4rem 0;
+}
+
+.task-description-el {
+  width: 100%;
+  margin-left: 1.6rem;
+}
+
+.delete-img-el {
+  cursor: pointer;
+  padding: 0 1.2rem;
+}
+
+.menu-img-el {
+  cursor: pointer;
+}
