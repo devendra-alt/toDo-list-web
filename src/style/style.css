@@ -1,0 +1,55 @@
+#todoApp {
+  /* box-shadow: 0px 7px 29px 0px; */
+  width: 70%;
+  padding: 2.4rem;
+}
+
+input {
+  outline: none;
+  border: none;
+  font-size: 1.4rem;
+}
+
+.completed-task-description {
+  text-decoration: line-through;
+}
+
+#add-task-input {
+  font-style: italic;
+  margin-top: 1.1rem;
+}
+
+#todo-list {
+  padding: 0;
+}
+
+.task-el {
+  display: flex;
+  flex-direction: row;
+  padding-top: 1.8rem;
+}
+
+.task-description-el {
+  width: 100%;
+  margin-left: 1.6rem;
+}
+
+.delete-img-el {
+  cursor: pointer;
+  padding-right: 1.2rem;
+}
+
+.menu-img-el {
+  cursor: pointer;
+}
+
+#clear-completed-btn {
+  border: none;
+  text-align: center;
+  width: 100%;
+  height: 3.2rem;
+  font-size: 1.5rem;
+  margin-top: 3rem;
+  background-color: #fff;
+  cursor: pointer;
+}
