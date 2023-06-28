@@ -48,8 +48,6 @@ describe('Add Tasks', () => {
 
     // Act
     initAddItemToList(tasks);
-    // addInput.value = 'test value 1';
-    // tasks.addTask(addInput.value);
     const tasks = [
       { index: 1, description: 'test value 1', completed: false },
       { index: 2, description: 'test value 2', completed: false },
