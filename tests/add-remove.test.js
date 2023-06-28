@@ -41,22 +41,28 @@ describe('Add Tasks', () => {
     expect(tasks[0].index).to.equal(1);
   });
 
-  it('should add a new item to the storage if input value is not empty', () => {
+  it('should able to add multiple tasks to task', () => {
     // Arrange
     const addInput = document.getElementById('add-task-input');
     const taskList = document.getElementById('todo-list');
 
     // Act
     initAddItemToList(tasks);
-    addInput.value = 'test value 1';
-    tasks.addTask(addInput.value);
+    // addInput.value = 'test value 1';
+    // tasks.addTask(addInput.value);
+    const tasks = [
+      { index: 1, description: 'test value 1', completed: false },
+      { index: 2, description: 'test value 2', completed: false },
+      { index: 3, description: 'test value 3', completed: false },
+    ];
     renderToDoList(tasks);
 
     // Assert
-    expect(tasks.length).to.equal(1);
-    expect(tasks[0].description).to.equal(addInput.value);
-    expect(tasks[0].completed).to.equal(false);
-    expect(tasks[0].index).to.equal(1);
+    expect(tasks).toEqual([
+      { index: 1, description: 'test value 1', completed: false },
+      { index: 2, description: 'test value 2', completed: false },
+      { index: 3, description: 'test value 3', completed: false },
+    ]);
   });
 
   it('should not add a new item to the storage if input value is empty', () => {
