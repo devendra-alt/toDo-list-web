@@ -1,5 +1,5 @@
-import deleteSvg from '../assets/delete.svg';
-import menuSvg from '../assets/menu.svg';
+// import deleteSvg from '../assets/delete.svg';
+// import menuSvg from '../assets/menu.svg';
 
 const todoListEl = document.getElementById('todo-list');
 

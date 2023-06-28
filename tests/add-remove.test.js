@@ -1,5 +1,9 @@
-import Task from './modules/task.js';
-import initAddItemToList from './modules/add.js';
+/**
+ * @jest-environment jsdom
+ */
+
+import Task from '../src/modules/task.js';
+import initAddItemToList from '../src/modules/add.js';
 import localStorageMock from './localstorage-mock.js';
 import renderToDoList from '../src/modules/render.js';
 
@@ -18,7 +22,7 @@ document.body.innerHTML = `
 
 describe('Add Tasks', () => {
   let tasks;
-  beforEach(() => {
+  beforeEach(() => {
     tasks = new Task();
     localStorage.clear();
   });
