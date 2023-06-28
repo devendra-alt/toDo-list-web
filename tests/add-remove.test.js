@@ -35,5 +35,41 @@ describe('Add Tasks', () => {
     renderToDoList(tasks);
 
     // assertion
+    expect(tasks.length).to.equal(1);
+    expect(tasks[0].description).to.equal(addInput.value);
+    expect(tasks[0].completed).to.equal(false);
+    expect(tasks[0].index).to.equal(1);
+  });
+
+  it('should add a new item to the storage if input value is not empty', () => {
+    // Arrange
+    const addInput = document.getElementById('add-task-input');
+    const taskList = document.getElementById('todo-list');
+
+    // Act
+    initAddItemToList(tasks);
+    addInput.value = 'test value 1';
+    tasks.addTask(addInput.value);
+    renderToDoList(tasks);
+
+    // Assert
+    expect(tasks.length).to.equal(1);
+    expect(tasks[0].description).to.equal(addInput.value);
+    expect(tasks[0].completed).to.equal(false);
+    expect(tasks[0].index).to.equal(1);
+  });
+
+  it('should not add a new item to the storage if input value is empty', () => {
+    // Arrange
+    const addInput = document.getElementById('add-task-input');
+    const taskList = document.getElementById('todo-list');
+    addInput.value = '';
+
+    // Act
+    initAddItemToList(tasks);
+
+    // Assert
+    tasks();
+    expect(tasks.length).to.equal(0);
   });
 });
