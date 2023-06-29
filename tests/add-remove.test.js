@@ -2,7 +2,6 @@
  * @jest-environment jsdom
  */
 
-import renderToDoList from '../src/modules/render.js';
 import Task from '../src/modules/task.js';
 import dom from './dom.js';
 import localStorageMock from './localstorage-mock.js';

@@ -3,7 +3,7 @@
  */
 import dom from './dom.js';
 import Task from '../src/modules/task.js';
-import localStorageMock from './localstorage-mock';
+import localStorageMock from './localstorage-mock.js';
 import renderToDoList from '../src/modules/render.js';
 
 Object.defineProperty(window, 'localStorage', {
@@ -23,14 +23,14 @@ describe('Editing Task', () => {
   });
 
   it('should edit description of task', () => {
-    let descriptions = ['test 1', 'test 2', 'test 3'];
+    const descriptions = ['test 1', 'test 2', 'test 3'];
     descriptions.forEach((description) => tasks.addTask(description));
     expect(tasks.getTasks().length).toBe(3);
     tasks.updateDescription('test 1 update', '1');
     renderToDoList(tasks);
     const listItems = document.querySelectorAll('.task-el');
-    let currentTaskDescription = listItems[0].querySelector(
-      '.task-description-el'
+    const currentTaskDescription = listItems[0].querySelector(
+      '.task-description-el',
     ).value;
     expect(currentTaskDescription).not.toBe(descriptions[0]);
   });
@@ -44,8 +44,7 @@ describe('Editing Task', () => {
     renderToDoList(tasks);
 
     const listItems = document.querySelectorAll('.task-el');
-    let currentTaskStatus =
-      listItems[2].querySelector('.task-checkbox-el').checked;
+    const currentTaskStatus = listItems[2].querySelector('.task-checkbox-el').checked;
     expect(currentTaskStatus).toBe(true);
   });
 
@@ -59,4 +58,5 @@ describe('Editing Task', () => {
     tasks.deleteAllCompleted();
     expect(tasks.getTasks().length).toBe(2);
   });
+  it('should update ui after delete clear all');
 });
