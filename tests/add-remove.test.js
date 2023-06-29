@@ -40,7 +40,7 @@ describe('Add Tasks', () => {
   });
 
   it('should able to add multiple tasks to task', () => {
-    for (let index = 0; index < 3; index++) {
+    for (let index = 0; index < 3; index += 1) {
       addInput.value = `test description - ${index}`;
       tasks.addTask(addInput.value);
     }
@@ -72,9 +72,6 @@ describe('Remove Task', () => {
     task.addTask('test 3');
 
     task.deleteTask('4');
-
-    console.log(task.getTasks());
-
     expect(task.getTasks().length).toBe(3);
   });
 

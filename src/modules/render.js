@@ -1,5 +1,5 @@
-// import deleteSvg from '../assets/delete.png';
-// import menuSvg from '../assets/menu.png';
+import deleteSvg from '../assets/delete.png';
+import menuSvg from '../assets/menu.png';
 
 const createTaskItemEl = (task) => {
   const taskEl = document.createElement('li');
