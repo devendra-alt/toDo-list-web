@@ -2,26 +2,21 @@
  * @jest-environment jsdom
  */
 
+import renderToDoList from '../src/modules/render.js';
 import Task from '../src/modules/task.js';
+import dom from './dom.js';
 import localStorageMock from './localstorage-mock.js';
 
 Object.defineProperty(window, 'localStorage', {
   value: localStorageMock,
 });
 
-document.body.innerHTML = `
-  <article id="todoApp">
-        <h1>Today's To Do</h1>
-        <input id="add-task-input" placeholder="Add to your list..." />
-        <ul id="todo-list"></ul>
-        <button id="clear-completed-btn">Clear all completed</button>
-  </article>
-  `;
+document.body.innerHTML = dom;
+
+const addInput = document.getElementById('add-task-input');
 
 describe('Add Tasks', () => {
   let tasks;
-  const addInput = document.getElementById('add-task-input');
-
   beforeEach(() => {
     tasks = new Task();
   });
