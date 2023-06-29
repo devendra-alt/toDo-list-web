@@ -59,5 +59,4 @@ describe('Editing Task', () => {
     tasks.deleteAllCompleted();
     expect(tasks.getTasks().length).toBe(2);
   });
-  it('should update ui after delete clear all')
 });
