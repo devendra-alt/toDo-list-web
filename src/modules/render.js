@@ -1,7 +1,5 @@
-// import deleteSvg from '../assets/delete.svg';
-// import menuSvg from '../assets/menu.svg';
-
-const todoListEl = document.getElementById('todo-list');
+// import deleteSvg from '../assets/delete.png';
+// import menuSvg from '../assets/menu.png';
 
 const createTaskItemEl = (task) => {
   const taskEl = document.createElement('li');
@@ -44,6 +42,7 @@ const createTaskItemEl = (task) => {
   return taskEl;
 };
 const renderToDoList = (tasks) => {
+  const todoListEl = document.getElementById('todo-list');
   todoListEl.innerHTML = '';
   tasks.getTasks().forEach((task) => {
     todoListEl.appendChild(createTaskItemEl(task));
