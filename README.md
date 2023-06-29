@@ -59,7 +59,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live demo here](https://devendra-alt.github.io/ES6-todo-list/dist)
+- [Live demo here](https://devendra-alt.github.io/toDo-list-web/dist)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
