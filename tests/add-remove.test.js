@@ -3,9 +3,7 @@
  */
 
 import Task from '../src/modules/task.js';
-import initAddItemToList from '../src/modules/add.js';
 import localStorageMock from './localstorage-mock.js';
-import renderToDoList from '../src/modules/render.js';
 
 Object.defineProperty(window, 'localStorage', {
   value: localStorageMock,
