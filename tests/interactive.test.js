@@ -10,3 +10,30 @@
     ).value;
     expect(currentTaskDescription).not.toBe(descriptions[0]);
   });
+
+  it('should update task completion state', () => {
+    tasks.addTask('task 1');
+    tasks.addTask('task 2');
+    tasks.addTask('task 3');
+
+    tasks.updateStatus('3');
+    renderToDoList(tasks);
+
+    const listItems = document.querySelectorAll('.task-el');
+    let currentTaskStatus =
+      listItems[2].querySelector('.task-checkbox-el').checked;
+    expect(currentTaskStatus).toBe(true);
+  });
+
+  it('should clear all completed tasks', () => {
+    tasks.addTask('test 1');
+    tasks.addTask('test 2');
+    tasks.addTask('test 3');
+    tasks.addTask('test 4');
+    tasks.updateStatus('2');
+    tasks.updateStatus('3');
+    tasks.deleteAllCompleted();
+    expect(tasks.getTasks().length).toBe(2);
+  });
+  it('should update ui after delete clear all')
+});
