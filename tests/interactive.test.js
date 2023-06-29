@@ -1,3 +1,27 @@
+/**
+ * @jest-environment jsdom
+ */
+import dom from './dom.js';
+import Task from '../src/modules/task.js';
+import localStorageMock from './localstorage-mock';
+import renderToDoList from '../src/modules/render.js';
+
+Object.defineProperty(window, 'localStorage', {
+  value: localStorageMock,
+});
+
+document.body.innerHTML = dom;
+
+describe('Editing Task', () => {
+  let tasks;
+  beforeEach(() => {
+    tasks = new Task();
+  });
+
+  afterEach(() => {
+    window.localStorage.clear();
+  });
+
   it('should edit description of task', () => {
     let descriptions = ['test 1', 'test 2', 'test 3'];
     descriptions.forEach((description) => tasks.addTask(description));
