@@ -63,6 +63,7 @@ describe('Editing Task', () => {
   });
 
   it('should select multiple tasks', () => {
+    //arrange
     tasks.addTask('test 1');
     tasks.addTask('test 2');
     tasks.addTask('test 3');
@@ -71,6 +72,7 @@ describe('Editing Task', () => {
     tasks.updateStatus('2');
     tasks.updateStatus('3');
     renderToDoList(tasks);
+    //act
     const listItems = document.querySelectorAll('.task-el');
     const selectedTasks = [];
     for (let index = 0; index < listItems.length; index += 1) {
@@ -80,6 +82,7 @@ describe('Editing Task', () => {
         selectedTasks.push(listItems[index]);
       }
     }
+    //assert
     expect(selectedTasks.length).toBe(3);
   });
 });
