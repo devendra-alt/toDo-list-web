@@ -30,7 +30,7 @@ describe('Editing Task', () => {
     renderToDoList(tasks);
     const listItems = document.querySelectorAll('.task-el');
     const currentTaskDescription = listItems[0].querySelector(
-      '.task-description-el'
+      '.task-description-el',
     ).value;
     expect(currentTaskDescription).not.toBe(descriptions[0]);
   });
@@ -39,18 +39,17 @@ describe('Editing Task', () => {
     tasks.addTask('task 1');
     tasks.addTask('task 2');
     tasks.addTask('task 3');
-    //act
+    // act
     tasks.updateStatus('3');
     renderToDoList(tasks);
     // assert
     const listItems = document.querySelectorAll('.task-el');
-    const currentTaskStatus =
-      listItems[2].querySelector('.task-checkbox-el').checked;
+    const currentTaskStatus = listItems[2].querySelector('.task-checkbox-el').checked;
     expect(currentTaskStatus).toBe(true);
   });
 
   it('should clear all completed tasks', () => {
-    //arrange
+    // arrange
     tasks.addTask('test 1');
     tasks.addTask('test 2');
     tasks.addTask('test 3');
@@ -58,12 +57,12 @@ describe('Editing Task', () => {
     tasks.updateStatus('2');
     tasks.updateStatus('3');
     tasks.deleteAllCompleted();
-    //assert
+    // assert
     expect(tasks.getTasks().length).toBe(2);
   });
 
   it('should select multiple tasks', () => {
-    //arrange
+    // arrange
     tasks.addTask('test 1');
     tasks.addTask('test 2');
     tasks.addTask('test 3');
@@ -72,7 +71,7 @@ describe('Editing Task', () => {
     tasks.updateStatus('2');
     tasks.updateStatus('3');
     renderToDoList(tasks);
-    //act
+    // act
     const listItems = document.querySelectorAll('.task-el');
     const selectedTasks = [];
     for (let index = 0; index < listItems.length; index += 1) {
@@ -82,7 +81,7 @@ describe('Editing Task', () => {
         selectedTasks.push(listItems[index]);
       }
     }
-    //assert
+    // assert
     expect(selectedTasks.length).toBe(3);
   });
 });
