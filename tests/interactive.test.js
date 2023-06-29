@@ -30,7 +30,7 @@ describe('Editing Task', () => {
     renderToDoList(tasks);
     const listItems = document.querySelectorAll('.task-el');
     const currentTaskDescription = listItems[0].querySelector(
-      '.task-description-el'
+      '.task-description-el',
     ).value;
     expect(currentTaskDescription).not.toBe(descriptions[0]);
   });
@@ -44,8 +44,7 @@ describe('Editing Task', () => {
     renderToDoList(tasks);
 
     const listItems = document.querySelectorAll('.task-el');
-    const currentTaskStatus =
-      listItems[2].querySelector('.task-checkbox-el').checked;
+    const currentTaskStatus = listItems[2].querySelector('.task-checkbox-el').checked;
     expect(currentTaskStatus).toBe(true);
   });
 
