@@ -62,7 +62,7 @@ class Task {
     const updatedDescription = description;
     this.#tasks = this.#tasks.map((task) => {
       if (task.index === intIndex) {
-        return { ...task, updatedDescription };
+        return { ...task, description: updatedDescription };
       }
       return task;
     });
