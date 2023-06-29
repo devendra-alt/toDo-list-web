@@ -2,7 +2,8 @@ class Task {
   #tasks;
 
   constructor() {
-    this.#tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    const storedData = localStorage.getItem('tasks');
+    this.#tasks = storedData ? JSON.parse(storedData) : [];
   }
 
   getTasks() {
@@ -14,6 +15,9 @@ class Task {
   }
 
   addTask(description) {
+    if (!description) {
+      return;
+    }
     const newTask = {
       index: this.#tasks.length + 1,
       description,
