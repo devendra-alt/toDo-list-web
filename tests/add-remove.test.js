@@ -22,42 +22,42 @@ document.body.innerHTML = `
 
 describe('Add Tasks', () => {
   let tasks;
+  const addInput = document.getElementById('add-task-input');
+
   beforeEach(() => {
     tasks = new Task();
-    localStorage.clear();
   });
 
-  test('should add item to dom', () => {
-    // arrange
-    const addInput = document.getElementById('add-task-input');
-    const taskList = document.getElementById('todo-list');
+  afterEach(() => {
+    window.localStorage.clear();
+  });
 
-    // action
-    initAddItemToList(tasks);
+  it('should add item to localstorage', () => {
     addInput.value = 'test value 1';
     tasks.addTask(addInput.value);
-    renderToDoList(tasks);
-
-    // assertion
-    expect(tasks.length).to.equal(1);
-    expect(tasks[0].description).to.equal(addInput.value);
-    expect(tasks[0].completed).to.equal(false);
-    expect(tasks[0].index).to.equal(1);
+    expect(tasks.getTasks().length).toBe(1);
+    expect(tasks.getTasks()[0].description).toBe(addInput.value);
+    expect(tasks.getTasks()[0].completed).toBe(false);
+    expect(tasks.getTasks()[0].index).toBe(1);
   });
 
   it('should able to add multiple tasks to task', () => {
-    // Arrange
-    const addInput = document.getElementById('add-task-input');
-    const taskList = document.getElementById('todo-list');
+    for (let index = 0; index < 3; index++) {
+      addInput.value = `test description - ${index}`;
+      tasks.addTask(addInput.value);
+    }
+    expect(tasks.getTasks().length).toBe(3);
+    expect(tasks.getTasks()[0].description).toBe('test description - 0');
+  });
 
+  it('should not add a new item to the storage if input value is empty', () => {
     // Act
-    initAddItemToList(tasks);
-    const tasks = [
-      { index: 1, description: 'test value 1', completed: false },
-      { index: 2, description: 'test value 2', completed: false },
-      { index: 3, description: 'test value 3', completed: false },
-    ];
-    renderToDoList(tasks);
+    addInput.value = '';
+    tasks.addTask(addInput.value);
+    expect(tasks.getTasks().length).toBe(0);
+    // Assert
+  });
+});
 
     // Assert
     expect(tasks).toEqual([
