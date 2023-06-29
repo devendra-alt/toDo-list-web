@@ -39,10 +39,10 @@ describe('Editing Task', () => {
     tasks.addTask('task 1');
     tasks.addTask('task 2');
     tasks.addTask('task 3');
-
+    //act
     tasks.updateStatus('3');
     renderToDoList(tasks);
-
+    // assert
     const listItems = document.querySelectorAll('.task-el');
     const currentTaskStatus =
       listItems[2].querySelector('.task-checkbox-el').checked;
@@ -50,6 +50,7 @@ describe('Editing Task', () => {
   });
 
   it('should clear all completed tasks', () => {
+    //arrange
     tasks.addTask('test 1');
     tasks.addTask('test 2');
     tasks.addTask('test 3');
@@ -57,6 +58,7 @@ describe('Editing Task', () => {
     tasks.updateStatus('2');
     tasks.updateStatus('3');
     tasks.deleteAllCompleted();
+    //assert
     expect(tasks.getTasks().length).toBe(2);
   });
 
