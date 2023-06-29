@@ -58,4 +58,23 @@ describe('Editing Task', () => {
     tasks.deleteAllCompleted();
     expect(tasks.getTasks().length).toBe(2);
   });
+
+  it('should select multiple tasks', () => {
+    tasks.addTask('test 1');
+    tasks.addTask('test 2');
+    tasks.addTask('test 3');
+    tasks.addTask('test 4');
+    tasks.updateStatus('1');
+    tasks.updateStatus('2');
+    tasks.updateStatus('3');
+    renderToDoList(tasks);
+    const listItems = document.querySelectorAll('.task-el');
+    const selectedTasks = [];
+    for (let i = 0; i < listItems.length; i += 1) {
+      if (listItems[i].querySelector('.task-checkbox-el').checked === true) {
+        selectedTasks.push(listItems[i]);
+      }
+    }
+    expect(selectedTasks.length).toBe(3);
+  });
 });
