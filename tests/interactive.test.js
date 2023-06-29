@@ -30,7 +30,7 @@ describe('Editing Task', () => {
     renderToDoList(tasks);
     const listItems = document.querySelectorAll('.task-el');
     const currentTaskDescription = listItems[0].querySelector(
-      '.task-description-el',
+      '.task-description-el'
     ).value;
     expect(currentTaskDescription).not.toBe(descriptions[0]);
   });
@@ -44,7 +44,8 @@ describe('Editing Task', () => {
     renderToDoList(tasks);
 
     const listItems = document.querySelectorAll('.task-el');
-    const currentTaskStatus = listItems[2].querySelector('.task-checkbox-el').checked;
+    const currentTaskStatus =
+      listItems[2].querySelector('.task-checkbox-el').checked;
     expect(currentTaskStatus).toBe(true);
   });
 
@@ -70,9 +71,11 @@ describe('Editing Task', () => {
     renderToDoList(tasks);
     const listItems = document.querySelectorAll('.task-el');
     const selectedTasks = [];
-    for (let i = 0; i < listItems.length; i += 1) {
-      if (listItems[i].querySelector('.task-checkbox-el').checked === true) {
-        selectedTasks.push(listItems[i]);
+    for (let index = 0; index < listItems.length; index += 1) {
+      if (
+        listItems[index].querySelector('.task-checkbox-el').checked === true
+      ) {
+        selectedTasks.push(listItems[index]);
       }
     }
     expect(selectedTasks.length).toBe(3);
