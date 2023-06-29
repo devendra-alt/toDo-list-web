@@ -59,25 +59,67 @@ describe('Add Tasks', () => {
   });
 });
 
-    // Assert
-    expect(tasks).toEqual([
-      { index: 1, description: 'test value 1', completed: false },
-      { index: 2, description: 'test value 2', completed: false },
-      { index: 3, description: 'test value 3', completed: false },
-    ]);
+describe('Remove Task', () => {
+  let task;
+  beforeEach(() => {
+    task = new Task();
+  });
+  afterEach(() => {
+    window.localStorage.clear();
   });
 
-  it('should not add a new item to the storage if input value is empty', () => {
-    // Arrange
-    const addInput = document.getElementById('add-task-input');
-    const taskList = document.getElementById('todo-list');
-    addInput.value = '';
+  it('should not delete any task if list item is out of range', () => {
+    task.addTask('test 1');
+    task.addTask('test 2');
+    task.addTask('test 3');
 
-    // Act
-    initAddItemToList(tasks);
+    task.deleteTask('4');
 
-    // Assert
-    tasks();
-    expect(tasks.length).to.equal(0);
+    console.log(task.getTasks());
+
+    expect(task.getTasks().length).toBe(3);
+  });
+
+  it('should delete single item from tasks list', () => {
+    task.addTask('test 1');
+    task.addTask('test 2');
+    task.addTask('test 3');
+
+    task.deleteTask('1');
+    const tasks = task.getTasks();
+    expect(tasks.length).toBe(2);
+    expect(tasks[0].description).toBe('test 2');
+  });
+
+  it('should have all indexes in sequence', () => {
+    task.addTask('test-1');
+    task.addTask('test-2');
+    task.addTask('test-3');
+    task.addTask('test-4');
+    task.addTask('test-5');
+    task.addTask('test-6');
+
+    task.deleteTask('1');
+    task.deleteTask('3');
+    task.deleteTask('4');
+
+    const tasks = task.getTasks();
+
+    tasks.forEach((element, index) => {
+      expect(element.index).toBe(index + 1);
+    });
+  });
+
+  it('should delete multiple tasks at once', () => {
+    task.addTask('test-3');
+    task.addTask('test-4');
+    task.addTask('test-5');
+    task.addTask('test-6');
+
+    task.deleteTask('1');
+    task.deleteTask('1');
+    task.deleteTask('1');
+
+    expect(task.getTasks().length).toBe(1);
   });
 });
