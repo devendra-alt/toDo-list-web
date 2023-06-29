@@ -7,7 +7,7 @@
     "build": "webpack",
     "dev": "webpack serve",
     "lint": "hint . && npx stylelint \"**/*.{css,scss}\" && eslint .",
-    "test": "jest --watch"
+    "test": "jest --coverage --watchAll"
   },
   "keywords": [
     "ES6",
